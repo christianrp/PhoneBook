@@ -38,8 +38,20 @@ class PhoneBook
         }
     }
 
-    static void AddContact() {
-
+    static void AddContact() 
+    {
+        Console.WriteLine("NEW CONTACT");
+        Console.WriteLine("Enter a new contacts name");
+        string name = Console.ReadLine();
+        if (phoneNumbers.ContainsKey(name))
+        {
+            Console.WriteLine("That person is already in your phonebook. Their number is " + phoneNumbers[name]);
+        }
+        else
+        {
+            phoneNumbers.Add(name, number);
+        }
+        Main();
     }
 
     static void LookUpContact() {
