@@ -17,7 +17,7 @@ class PhoneBook
         else
         {
             Console.WriteLine("Would you like to lookup a number in your phone book? ['Y' for yes, 'Enter' for no]");
-            string.lookUpAnswer = Console.ReadLine();
+            string lookUpAnswer = Console.ReadLine();
             if (lookUpAnswer == "Y" || lookUpAnswer == "y")
             {
                 LookUpContact();
@@ -43,6 +43,8 @@ class PhoneBook
         Console.WriteLine("NEW CONTACT");
         Console.WriteLine("Enter a new contacts name");
         string name = Console.ReadLine();
+        Console.WriteLine("Enter a new contacts phone number");
+        string number = Console.ReadLine();
         if (phoneNumbers.ContainsKey(name))
         {
             Console.WriteLine("That person is already in your phonebook. Their number is " + phoneNumbers[name]);
@@ -54,7 +56,20 @@ class PhoneBook
         Main();
     }
 
-    static void LookUpContact() {
-
+    static void LookUpContact() 
+    {
+        Console.WriteLine("CONTACT LOOKUP");
+        Console.WriteLine("Whose number would you like to look up?");
+        string friend = Console.ReadLine();
+        if (phoneNumbers.ContainsKey(friend))
+        {
+            string value = phoneNumbers[friend];
+            Console.WriteLine(friend + "\'s phone number is " + value);
+        }
+        else
+        {
+            Console.WriteLine("That person is not in your phone book.");
+        }
+        Main();
     }
 }
